@@ -17,6 +17,7 @@ Customising the simulation is easy.  Code of note is organised thusly:
 		- assets
 			- styles.css
 			- browser.js
+			- d3.min.js
 		- simulation.coffee.md
 		- browser.coffee.md
 		- index.html
