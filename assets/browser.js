@@ -55,15 +55,17 @@ setInterval(run, 500);
 
 
 },{"./assets/d3.min.js":1,"./simulation.coffee.md":3}],3:[function(require,module,exports){
-var Agent, Space, agents, depth, move;
+var Agent, Space, agents, depth, move, step;
 
-depth = 100;
+depth = 50;
+
+step = 50;
 
 Agent = (function() {
   function Agent(space) {
     this.space = space;
     this.race = Math.floor(Math.random() * 2) === 0 ? "blue" : "red";
-    this.xenophobia = this.race === "blue" ? 0.5 : 0.6;
+    this.xenophobia = this.race === "blue" ? 0.6 : 0.6;
     this.x = Math.floor(Math.random() * 600);
     this.y = Math.floor(Math.random() * 600);
   }
@@ -124,7 +126,7 @@ Space = (function() {
 agents = function() {
   var n, space, _i;
   space = new Space();
-  for (n = _i = 1; _i <= 1000; n = ++_i) {
+  for (n = _i = 1; _i <= 2000; n = ++_i) {
     space.agents.push(new Agent(space));
   }
   return space.agents;
@@ -132,19 +134,19 @@ agents = function() {
 
 move = function(agent) {
   if (!agent.isHappy()) {
-    agent.x += (Math.random() * 20) - 10;
+    agent.x += (Math.random() * step) - step / 2;
     if (agent.x < 0) {
-      agent.x = 0;
+      agent.x = 25;
     }
     if (agent.x > 600) {
-      agent.x = 600;
+      agent.x = 575;
     }
-    agent.y += (Math.random() * 20) - 10;
+    agent.y += (Math.random() * step) - step / 2;
     if (agent.y < 0) {
-      agent.y = 0;
+      agent.y = 25;
     }
     if (agent.y > 600) {
-      return agent.y = 600;
+      return agent.y = 575;
     }
   }
 };
