@@ -64,8 +64,15 @@ step = 50;
 Agent = (function() {
   function Agent(space) {
     this.space = space;
-    this.race = Math.floor(Math.random() * 2) === 0 ? "blue" : "red";
-    this.xenophobia = this.race === "blue" ? 0.6 : 0.6;
+    this.race = (function() {
+      switch (Math.floor(Math.random() * 2)) {
+        case 0:
+          return "blue";
+        case 1:
+          return "red";
+      }
+    })();
+    this.xenophobia = this.race === "blue" ? 0.5 : 0.5;
     this.x = Math.floor(Math.random() * 600);
     this.y = Math.floor(Math.random() * 600);
   }

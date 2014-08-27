@@ -14,8 +14,11 @@ We start with our agents.  Our agents exist in a 2D space, are of a certain race
 
 		class Agent
 			constructor: (@space) ->
-				@race = if Math.floor(Math.random() * 2) is 0 then "blue" else "red"
-				@xenophobia = if @race is "blue" then 0.6 else 0.6
+				@race = switch Math.floor Math.random() * 2
+									when 0 then "blue"
+									when 1 then "red"
+									#when 2 then "green"
+				@xenophobia = if @race is "blue" then 0.5 else 0.5
 				@x = Math.floor Math.random() * 600 
 				@y = Math.floor Math.random() * 600
 
