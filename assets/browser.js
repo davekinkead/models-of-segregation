@@ -23,7 +23,8 @@ canvas = d3.select("#space").append("svg:svg").attr("height", height).attr("widt
 });
 
 info = d3.select("#info").on("click", function() {
-  return d3.select("#info p").style("display", "none");
+  d3.select("#info p").style("display", "none");
+  return d3.select("#info h1").style("font-size", "1em");
 });
 
 populate = function() {
