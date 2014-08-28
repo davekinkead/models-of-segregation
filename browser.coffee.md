@@ -35,7 +35,7 @@ Now we need to createsvg circles to represent our agents and bind them to the ac
 				.enter().append "circle"
 				.style "fill", (d) -> d.race 
 				.style "opacity", 0.5
-				.attr "r", 3
+				.attr "r", 6
 				.attr "cx", (d) -> d.x
 				.attr "cy", (d) -> d.y
 

@@ -30,7 +30,7 @@ info = d3.select("#info").on("click", function() {
 populate = function() {
   return canvas.selectAll("circle").data(simulation.agents(height, width)).enter().append("circle").style("fill", function(d) {
     return d.race;
-  }).style("opacity", 0.5).attr("r", 3).attr("cx", function(d) {
+  }).style("opacity", 0.5).attr("r", 6).attr("cx", function(d) {
     return d.x;
   }).attr("cy", function(d) {
     return d.y;
