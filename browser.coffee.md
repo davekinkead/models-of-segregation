@@ -35,7 +35,7 @@ Now we need to createsvg circles to represent our agents and bind them to the ac
 				.enter().append "circle"
 				.style "fill", (d) -> d.race 
 				.style "opacity", 0.5
-				.attr "r", 6
+				.attr "r", 8
 				.attr "cx", (d) -> d.x
 				.attr "cy", (d) -> d.y
 
@@ -50,7 +50,7 @@ We then write a loop where each svg circle triggers the move function for its bo
 			circles.each (d) ->
 				d = simulation.move d
 			.transition()
-			.duration 600
+			.duration 50
 			.attr "cx", (d) -> d.x
 			.attr "cy", (d) -> d.y
 
@@ -61,4 +61,4 @@ We then write a loop where each svg circle triggers the move function for its bo
 Finally, we run the loop continuous with a half second pause.
 
 
-		setInterval run, 500
+		setInterval run, 50

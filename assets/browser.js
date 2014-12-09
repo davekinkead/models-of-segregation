@@ -30,7 +30,7 @@ info = d3.select("#info").on("click", function() {
 populate = function() {
   return canvas.selectAll("circle").data(simulation.agents(height, width)).enter().append("circle").style("fill", function(d) {
     return d.race;
-  }).style("opacity", 0.5).attr("r", 6).attr("cx", function(d) {
+  }).style("opacity", 0.5).attr("r", 8).attr("cx", function(d) {
     return d.x;
   }).attr("cy", function(d) {
     return d.y;
@@ -44,7 +44,7 @@ move = function() {
   circles = canvas.selectAll("circle");
   return circles.each(function(d) {
     return d = simulation.move(d);
-  }).transition().duration(600).attr("cx", function(d) {
+  }).transition().duration(50).attr("cx", function(d) {
     return d.x;
   }).attr("cy", function(d) {
     return d.y;
@@ -57,7 +57,7 @@ run = function() {
   }
 };
 
-setInterval(run, 500);
+setInterval(run, 50);
 
 
 
@@ -69,19 +69,17 @@ Agent = (function() {
     var _ref;
     this.space = space;
     _ref = (function() {
-      switch (Math.floor(Math.random() * 3)) {
+      switch (Math.floor(Math.random() * 2)) {
         case 0:
-          return ["blue", 0.4];
+          return ["blue", 0.6];
         case 1:
-          return ["red", 0.4];
-        case 2:
-          return ["green", 0.4];
+          return ["red", 0.6];
       }
     })(), this.race = _ref[0], this.xenophobia = _ref[1];
     this.x = Math.floor(Math.random() * this.space.width);
     this.y = Math.floor(Math.random() * this.space.height);
-    this.step = this.space.width * this.space.height / 7200;
-    this.depth = this.space.width * this.space.height / 7200;
+    this.step = 50;
+    this.depth = 100;
   }
 
   Agent.prototype.isHappy = function() {
