@@ -2,7 +2,7 @@
 
 A reproduction of Thomas Schelling's seminal 1969 work using agent based modelling with coffeescript, D3.js, and HTML. 
 
-Schelling's paper is about the segregation that can result form discriminatory individual choices. (p488)
+Schelling's paper is about how segregation is not necessarily the result of discriminatory individual choices. (p488)
 
 His "conjecture is that the interplay of individual choices, where unorganised segregation is concerned, is a complex system with collective results that bear no close relation to individual intent." (p488)
 

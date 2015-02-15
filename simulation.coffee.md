@@ -11,12 +11,12 @@ In this case, we will create 3 races of agents and give them a xenophobia level 
 		class Agent
 			constructor: (@space) ->
 				[@race, @xenophobia] = switch Math.floor Math.random() * 2
-									when 0 then ["blue", 0.6]
-									when 1 then ["red", 0.6]
+									when 0 then ["blue", 0.55]
+									when 1 then ["red", 0.55]
 				@x = Math.floor Math.random() * @space.width
 				@y = Math.floor Math.random() * @space.height
-				@step 	= 50 #@space.width * @space.height / 7200
-				@depth 	= 100 #@space.width * @space.height / 7200
+				@step 	= 50 
+				@depth = 100
 
 
 The happiness of agents is determined by their neighbourhood composition.  If the homogeniality is greater than their xenophobia, then they are happy.  High levels of xenophobia should correlate with greater levels of unhappiness, all other things being equal.

@@ -5,9 +5,9 @@ This is the browser file where we pull together different parts of the simulatio
 
 		d3 = require './assets/d3.min.js'
 		simulation = require './simulation.coffee.md'
-		running = true
-		height = window.innerHeight || 600
-		width = window.innerWidth || 600
+		running = false
+		height = window.innerHeight  - 40 || 600
+		width = window.innerWidth - 40 || 600
 
 
 Next, we'll grab create our svg canvas, apply some event listeners and add it to the DOM.
@@ -18,13 +18,8 @@ Next, we'll grab create our svg canvas, apply some event listeners and add it to
 								.attr("height", height)
 								.attr("width", width)
 								.on "click", () ->
-									running = false
-									alert 'Simulation stopped'
-
-		info = d3.select("#info")
-					.on "click", () ->
-						d3.select("#info p").style "display", "none"
-						d3.select("#info h1").style "font-size", "1em"
+									running = if running is true then false else true
+								
 
 Now we need to createsvg circles to represent our agents and bind them to the actual agents from the simulation.  The `d` in the functions here is the D3js accessor to the agent data.
 
@@ -50,7 +45,7 @@ We then write a loop where each svg circle triggers the move function for its bo
 			circles.each (d) ->
 				d = simulation.move d
 			.transition()
-			.duration 50
+			.duration 500
 			.attr "cx", (d) -> d.x
 			.attr "cy", (d) -> d.y
 
@@ -61,4 +56,4 @@ We then write a loop where each svg circle triggers the move function for its bo
 Finally, we run the loop continuous with a half second pause.
 
 
-		setInterval run, 50
+		setInterval run, 500
